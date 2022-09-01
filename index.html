@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final</title>
+</head>
+<body>
+
+<!--Formulario a completar -->
+
+    <form name="formulario" id="formulario">
+        <h3>Ingresá los datos para solicitar el servicio</h3>
+          <div>
+              <label for="validationDefault01">Nombre</label>
+              <input type="text"id="nombre" required>
+          </div>
+          <div>
+              <label for="validationDefault02">Apellido</label>
+              <input type="text" id="apellido" required>
+          </div>
+          <div>
+              <label>Email</label>
+              <div><input type="email"id="email" required>
+              </div>
+          </div>
+          <div>
+          <select name="" id="ubicacion">
+              <option value="Caba">CABA</option>
+              <option value="Amba">AMBA</option>
+          </select>
+          <select name="" id="vehiculo">
+              <option value="moto">Moto</option>
+              <option value="auto">Auto</option>
+              <option value="camioneta">Camioneta</option>
+          </select>
+          </div>
+              <input type="number" name="distancia" min="20" max="2000" id="distancia"> Distancia aproximada de envío
+          <div id="boton_servicio">
+            <button id="submit" type="submit">Solicitar servicio</button>
+          </div>
+      </form>
+    </div>
+        
+    
+
+        <p id="servicioFinal"></p>
+
+
+
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
