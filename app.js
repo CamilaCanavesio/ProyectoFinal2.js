@@ -46,12 +46,59 @@ function demoraDelServicio() {
     }
 }
 
-let detalleServicio = document.getElementById("formulario")
+function validarFormulario(e) {
+    
+    e.preventDefault();
+    
+    let miformulario = e.target
 
-function elegirServicios(){
+    const nombre = document.querySelector("#nombre").value; 
+    const apellido = document.querySelector("#apellido").value;
+    const email = document.querySelector("#email").value;
+    const costoDelTraslado = tipoVehiculo() + distanciaDeTraslado();
+    const tiempoDeEspera = demoraDelServicio();
+
+
+    const servicio = new Servicio(nombre, apellido, email, costoDelTraslado, tiempoDeEspera);
+
+        imprimir(servicio);
+
+    miformulario.reset();
+
+    $('#submit').on('click', aplicarEstilo());
+    
+    function aplicarEstilo() {
+        document.getElementById("vent").style.display="block"
+        
+    };
+
+
+}
+function imprimir() {
+
+
+ 
+    let costoDelTraslado = tipoVehiculo() + distanciaDeTraslado();
+    let tiempoDeEspera = demoraDelServicio();
+
+    const nuevoDiv = document.createElement ("div");
+
+    nuevoDiv.classList.add("item");
+    nuevoDiv.setAttribute("class", "ventana");
+
+    const h1 = document.createElement("h1");
+    h1.textContent = `Hola ${nombre.value}, tu tiempo de espera sera ${tiempoDeEspera} y el costo total es de $${costoDelTraslado}.`;
    
-        let datos = document.getElementById("vehiculo");
-       
+    nuevoDiv.appendChild(h1);
 
-document.getElementById("servicioFinal").innerHTML = `Usted eligio el vehiculo ${datos}`
+    const p = document.createElement("p");
+    p.textContent = `En menos de 2 minutos te llegara un email a ${email.value} para que puedas seguir en tiempo real el servicio.`;
+    nuevoDiv.appendChild(p);
+    
+
+    let base = document.querySelector("#vent");
+    
+    base.innerHTML = '';
+    base.appendChild(nuevoDiv);
+
 }
